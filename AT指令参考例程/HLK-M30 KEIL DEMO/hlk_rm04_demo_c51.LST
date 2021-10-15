@@ -1,0 +1,69 @@
+C51 COMPILER V9.51   HLK_RM04_DEMO_C51                                                     10/25/2014 17:55:48 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE HLK_RM04_DEMO_C51
+OBJECT MODULE PLACED IN hlk_rm04_demo_c51.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE hlk_rm04_demo_c51.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1            /*
+   2           ***************************************************************************
+   3           * (c) Copyright, Shenzhen Hi-Link ElectronicTechnology co.,Ltd/HI-LINK(HK) CO.,LIMITED.
+   4           * All Rights Reserved.
+   5           *
+   6           *Shenzhen Hi-Link ElectronicTechnology co.,Ltd/HI-LINK(HK) CO.,LIMITED
+   7           *3F.5# Building,Minxing Industrial Park
+   8           *MingZhi LongHua District
+   9           *Shenzhen,China.
+  10           *
+  11           ***************************************************************************
+  12           *
+  13           */
+  14           
+  15          #include "stdio.h"
+  16          #include "stdlib.h"
+  17          #include "ctype.h"
+  18          
+  19          #include <88F2051.h>
+  20          #include "intrins.h"
+  21          #include "stdarg.h"
+  22          #include "sh88f2051_uart.h"
+  23          #include "hlk-m30.h"
+  24           
+  25          
+  26          
+  27          /*************************************************************************************
+  28          ***º¯ÊýÃû£ºmain()
+  29          ***¹¦ÄÜ£ºÖ÷º¯Êý
+  30          ***²ÎÊý£ºÎÞ
+  31          ***·µ»Ø£ºÎÞ
+  32          *************************************************************************************/
+  33          void main()
+  34          { 
+  35   1        HLK_uart_init();  
+  36   1      //  HLK_M30_ResetDefault();  //½«Ä£¿é»Ö¸´µ½³ö³§ÉèÖÃ
+  37   1        HLK_M30_STA_Manual("WIFI-mark",9, "markmarkmark123");  //wifiÃû³ÆÎªWIFI-mark£¬ÃÜÂëmarkmarkmark123,¼ÓÃÜ·½Ê
+             -½Îª£ºWPA/WPA2_AES
+  38   1        while(1)
+  39   1        {
+  40   2      
+  41   2        }
+  42   1            
+  43   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     25    ----
+   CONSTANT SIZE    =     26    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.51   HLK_RM04_DEMO_C51                                                     10/25/2014 17:55:48 PAGE 2   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

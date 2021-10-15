@@ -1,0 +1,551 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/25/2014  17:55:48  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, hlk_rm04_demo_c51.obj, sh88f2052_uart.obj, HLK-M30.obj TO SH88F2051 TEST RAMSIZE (
+>> 256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  hlk_rm04_demo_c51.obj (HLK_RM04_DEMO_C51)
+  sh88f2052_uart.obj (SH88F2052_UART)
+  HLK-M30.obj (HLK_M30)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?COPY)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?ULDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?ULCMP)
+  C:\KEIL\C51\LIB\C51S.LIB (STRSTR)
+
+
+LINK MAP OF MODULE:  SH88F2051 TEST (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0041H     UNIT         ?DT?HLK_M30
+            DATA    0049H     001DH     UNIT         _DATA_GROUP_
+            DATA    0066H     000CH     UNIT         ?DT?_STRSTR?STRSTR
+            DATA    0072H     000AH     UNIT         ?DT?_HLK_UART_READ_TIMEOUT?SH88F2052_UART
+            DATA    007CH     0003H     UNIT         ?DT?_HLK_UART_READ?SH88F2052_UART
+            IDATA   007FH     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+            XDATA   0000H     0040H     UNIT         ?XD?SH88F2052_UART
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0020H     UNIT         ?PR?_HLK_STRLEN?SH88F2052_UART
+            CODE    0023H     0003H     ABSOLUTE     
+            CODE    0026H     021BH     UNIT         ?C?LIB_CODE
+            CODE    0241H     014CH     UNIT         ?CO?HLK_M30
+            CODE    038DH     0138H     UNIT         ?PR?_HLK_M30_STA_MANUAL?HLK_M30
+            CODE    04C5H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0551H     0084H     UNIT         ?PR?_HLK_UART_READ_TIMEOUT?SH88F2052_UART
+            CODE    05D5H     0082H     UNIT         ?PR?_STRSTR?STRSTR
+            CODE    0657H     0079H     UNIT         ?PR?_HLK_PRINTINT?HLK_M30
+            CODE    06D0H     005CH     UNIT         ?PR?UART_INT?SH88F2052_UART
+            CODE    072CH     003FH     UNIT         ?PR?HLK_ISATMODE?HLK_M30
+            CODE    076BH     003FH     UNIT         ?PR?HLK_M30_RESETDEFAULT?HLK_M30
+            CODE    07AAH     0036H     UNIT         ?PR?_HLK_UART_READ?SH88F2052_UART
+            CODE    07E0H     002FH     UNIT         ?PR?HLK_UART_INIT?SH88F2052_UART
+            CODE    080FH     0029H     UNIT         ?PR?_HLK_PRINTF?SH88F2052_UART
+            CODE    0838H     0022H     UNIT         ?PR?_DELAY?SH88F2052_UART
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/25/2014  17:55:48  PAGE 2
+
+
+            CODE    085AH     001AH     UNIT         ?CO?HLK_RM04_DEMO_C51
+            CODE    0874H     0019H     UNIT         ?PR?MAIN?HLK_RM04_DEMO_C51
+            CODE    088DH     0015H     UNIT         ?PR?_MDELAY?SH88F2052_UART
+            CODE    08A2H     000EH     UNIT         ?PR?_PRINT_CHAR?SH88F2052_UART
+            CODE    08B0H     000AH     UNIT         ?C_INITSEG
+            CODE    08BAH     0008H     UNIT         ?PR?HLK_UART_CLEAR_RX?SH88F2052_UART
+
+
+
+OVERLAY MAP OF MODULE:   SH88F2051 TEST (?C_STARTUP)
+
+
+SEGMENT                                            DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH
+----------------------------------------------------------------
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?HLK_RM04_DEMO_C51
+  +--> ?C_INITSEG
+
+?PR?MAIN?HLK_RM04_DEMO_C51                       -----    -----
+  +--> ?PR?HLK_UART_INIT?SH88F2052_UART
+  +--> ?CO?HLK_RM04_DEMO_C51
+  +--> ?PR?_HLK_M30_STA_MANUAL?HLK_M30
+
+?PR?_HLK_M30_STA_MANUAL?HLK_M30                  0049H    000BH
+  +--> ?PR?_HLK_STRLEN?SH88F2052_UART
+  +--> ?CO?HLK_M30
+  +--> ?PR?_HLK_PRINTF?SH88F2052_UART
+  +--> ?PR?_HLK_PRINTINT?HLK_M30
+
+?PR?_HLK_STRLEN?SH88F2052_UART                   0063H    0003H
+
+?PR?_HLK_PRINTF?SH88F2052_UART                   0060H    0003H
+  +--> ?PR?_HLK_STRLEN?SH88F2052_UART
+  +--> ?PR?_PRINT_CHAR?SH88F2052_UART
+
+?PR?_HLK_PRINTINT?HLK_M30                        0054H    000CH
+  +--> ?CO?HLK_M30
+  +--> ?PR?_HLK_PRINTF?SH88F2052_UART
+
+
+
+IGNORED SEGMENTS:
+   ?DT?_DELAY?SH88F2052_UART
+   ?DT?SH88F2052_UART
+
+
+
+IGNORED SYMBOLS:
+   UART_LEN
+   UART_TX_BUF
+   UART_TX_IDLE
+   UART_TX_LEN
+
+
+
+SYMBOL TABLE OF MODULE:  SH88F2051 TEST (?C_STARTUP)
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/25/2014  17:55:48  PAGE 3
+
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:04C5H         SEGMENT       ?C_C51STARTUP
+  I:007FH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:04C8H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:04C5H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:04C5H         LINE#         133
+  C:04C7H         LINE#         134
+  C:04C8H         LINE#         135
+  C:04C9H         LINE#         136
+  C:04CBH         LINE#         185
+  C:04CEH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        HLK_RM04_DEMO_C51
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0874H         PUBLIC        main
+  -------         PROC          MAIN
+  C:0874H         LINE#         33
+  C:0874H         LINE#         34
+  C:0874H         LINE#         35
+  C:0877H         LINE#         37
+  C:088BH         LINE#         38
+  C:088BH         LINE#         39
+  C:088BH         LINE#         41
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        HLK_RM04_DEMO_C51
+
+  -------         MODULE        SH88F2052_UART
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:088DH         PUBLIC        _mdelay
+  B:00A8H.7       PUBLIC        EA
+  C:0838H         PUBLIC        _delay
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/25/2014  17:55:48  PAGE 4
+
+
+  C:07E0H         PUBLIC        HLK_uart_init
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  C:0551H         PUBLIC        _HLK_uart_read_TimeOut
+  D:0000H         PUBLIC        uart_tx_buf
+  D:0006H         PUBLIC        uart_tx_len
+  C:08A2H         PUBLIC        _print_char
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  C:08BAH         PUBLIC        HLK_uart_clear_rx
+  D:0089H         PUBLIC        TMOD
+  C:080FH         PUBLIC        _HLK_Printf
+  D:00B2H         PUBLIC        CLKCON
+  B:00A8H.4       PUBLIC        ES0
+  D:0007H         PUBLIC        UART_TX_IDLE
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  C:0003H         PUBLIC        _HLK_strlen
+  X:0000H         PUBLIC        uart_buf
+  D:0008H         PUBLIC        uart_len
+  D:00CEH         PUBLIC        TCON1
+  C:06D0H         PUBLIC        UART_int
+  D:009BH         PUBLIC        SADEN
+  D:009AH         PUBLIC        SADDR
+  C:07AAH         PUBLIC        _HLK_uart_read
+  -------         PROC          _DELAY
+  D:0007H         SYMBOL        xx
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0000H         SYMBOL        j
+  -------         ENDDO         
+  C:0838H         LINE#         24
+  C:0838H         LINE#         25
+  C:0838H         LINE#         27
+  C:083EH         LINE#         28
+  C:0841H         LINE#         29
+  C:0849H         LINE#         30
+  C:0854H         LINE#         31
+  C:0857H         LINE#         32
+  C:0859H         LINE#         33
+  -------         ENDPROC       _DELAY
+  -------         PROC          _MDELAY
+  D:0002H         SYMBOL        ms
+  C:088DH         LINE#         35
+  C:0891H         LINE#         36
+  C:0891H         LINE#         37
+  C:0895H         LINE#         38
+  C:089AH         LINE#         39
+  C:08A1H         LINE#         40
+  -------         ENDPROC       _MDELAY
+  -------         PROC          HLK_UART_INIT
+  C:07E0H         LINE#         48
+  C:07E0H         LINE#         49
+  C:07E0H         LINE#         50
+  C:07E3H         LINE#         51
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/25/2014  17:55:48  PAGE 5
+
+
+  C:07E6H         LINE#         53
+  C:07E9H         LINE#         54
+  C:07ECH         LINE#         56
+  C:07EEH         LINE#         57
+  C:07F0H         LINE#         60
+  C:07F2H         LINE#         61
+  C:07F5H         LINE#         62
+  C:07F8H         LINE#         63
+  C:07FBH         LINE#         64
+  C:07FEH         LINE#         69
+  C:0801H         LINE#         70
+  C:0804H         LINE#         75
+  C:0806H         LINE#         76
+  C:0808H         LINE#         77
+  C:080AH         LINE#         78
+  C:080CH         LINE#         79
+  C:080EH         LINE#         82
+  -------         ENDPROC       HLK_UART_INIT
+  -------         PROC          _HLK_UART_READ
+  D:007CH         SYMBOL        date
+  D:0004H         SYMBOL        len
+  C:07AAH         LINE#         91
+  C:07B0H         LINE#         92
+  C:07B0H         LINE#         93
+  C:07B8H         LINE#         94
+  C:07BFH         LINE#         95
+  C:07BFH         LINE#         96
+  C:07C3H         LINE#         97
+  C:07C5H         LINE#         98
+  C:07D7H         LINE#         99
+  C:07DAH         LINE#         100
+  C:07DCH         LINE#         101
+  C:07DCH         LINE#         102
+  C:07DFH         LINE#         103
+  -------         ENDPROC       _HLK_UART_READ
+  -------         PROC          _HLK_UART_READ_TIMEOUT
+  D:0072H         SYMBOL        date
+  D:0075H         SYMBOL        len
+  D:0077H         SYMBOL        TimeOut
+  -------         DO            
+  D:0079H         SYMBOL        iret
+  -------         DO            
+  D:007BH         SYMBOL        x
+  -------         ENDDO         
+  -------         ENDDO         
+  C:0551H         LINE#         113
+  C:055BH         LINE#         114
+  C:055BH         LINE#         115
+  C:0560H         LINE#         117
+  C:0560H         LINE#         118
+  C:0567H         LINE#         120
+  C:0569H         LINE#         121
+  C:056DH         LINE#         123
+  C:057DH         LINE#         124
+  C:0582H         LINE#         126
+  C:0589H         LINE#         128
+  C:05A4H         LINE#         129
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/25/2014  17:55:48  PAGE 6
+
+
+  C:05AFH         LINE#         130
+  C:05B6H         LINE#         131
+  C:05B6H         LINE#         132
+  C:05B8H         LINE#         133
+  C:05D0H         LINE#         135
+  C:05D4H         LINE#         136
+  -------         ENDPROC       _HLK_UART_READ_TIMEOUT
+  -------         PROC          HLK_UART_CLEAR_RX
+  C:08BAH         LINE#         144
+  C:08BAH         LINE#         145
+  C:08BAH         LINE#         146
+  C:08BCH         LINE#         147
+  C:08BFH         LINE#         148
+  C:08C1H         LINE#         149
+  -------         ENDPROC       HLK_UART_CLEAR_RX
+  -------         PROC          _HLK_STRLEN
+  D:0063H         SYMBOL        str
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         156
+  C:0009H         LINE#         157
+  C:0009H         LINE#         159
+  C:0022H         LINE#         161
+  C:0022H         LINE#         162
+  -------         ENDPROC       _HLK_STRLEN
+  -------         PROC          _PRINT_CHAR
+  D:0007H         SYMBOL        v
+  C:08A2H         LINE#         169
+  C:08A2H         LINE#         170
+  C:08A2H         LINE#         171
+  C:08A4H         LINE#         172
+  C:08A6H         LINE#         173
+  C:08A8H         LINE#         174
+  C:08ABH         LINE#         175
+  C:08ADH         LINE#         176
+  C:08AFH         LINE#         177
+  -------         ENDPROC       _PRINT_CHAR
+  -------         PROC          _HLK_PRINTF
+  D:0060H         SYMBOL        str
+  -------         DO            
+  D:0006H         SYMBOL        len
+  -------         ENDDO         
+  C:080FH         LINE#         185
+  C:0815H         LINE#         186
+  C:0815H         LINE#         187
+  C:081AH         LINE#         188
+  C:0820H         LINE#         189
+  C:0835H         LINE#         190
+  C:0837H         LINE#         191
+  -------         ENDPROC       _HLK_PRINTF
+  -------         PROC          UART_INT
+  -------         DO            
+  D:0007H         SYMBOL        x
+  -------         ENDDO         
+  C:06D0H         LINE#         198
+  C:06E1H         LINE#         202
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/25/2014  17:55:48  PAGE 7
+
+
+  C:06E4H         LINE#         203
+  C:06E6H         LINE#         204
+  C:06E8H         LINE#         205
+  C:06EFH         LINE#         206
+  C:06FFH         LINE#         207
+  C:06FFH         LINE#         208
+  C:06FFH         LINE#         210
+  C:06FFH         LINE#         211
+  C:06FFH         LINE#         213
+  C:0702H         LINE#         214
+  C:0704H         LINE#         215
+  C:0708H         LINE#         216
+  C:070BH         LINE#         217
+  C:0718H         LINE#         218
+  C:071AH         LINE#         219
+  C:071AH         LINE#         220
+  C:071DH         LINE#         221
+  C:071DH         LINE#         222
+  C:071DH         LINE#         223
+  -------         ENDPROC       UART_INT
+  -------         ENDMOD        SH88F2052_UART
+
+  -------         MODULE        HLK_M30
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:072CH         PUBLIC        HLK_IsATMode
+  C:076BH         PUBLIC        HLK_M30_ResetDefault
+  D:0008H         PUBLIC        buf
+  C:0385H         SYMBOL        _?ix1000
+  C:038DH         PUBLIC        _HLK_M30_STA_Manual
+  C:0657H         PUBLIC        _HLK_PrintInt
+  -------         PROC          HLK_ISATMODE
+  -------         DO            
+  D:0007H         SYMBOL        len
+  -------         ENDDO         
+  C:072CH         LINE#         24
+  C:072CH         LINE#         25
+  C:072CH         LINE#         27
+  C:072FH         LINE#         28
+  C:0738H         LINE#         29
+  C:074BH         LINE#         30
+  C:0751H         LINE#         31
+  C:0766H         LINE#         32
+  C:0768H         LINE#         33
+  C:0768H         LINE#         34
+  C:076AH         LINE#         35
+  -------         ENDPROC       HLK_ISATMODE
+  -------         PROC          _HLK_PRINTINT
+  D:0054H         SYMBOL        a
+  -------         DO            
+  D:0007H         SYMBOL        i
+  D:0058H         SYMBOL        s
+  -------         ENDDO         
+  C:0657H         LINE#         42
+  C:065FH         LINE#         43
+  C:065FH         LINE#         45
+  C:0672H         LINE#         46
+  C:0675H         LINE#         47
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/25/2014  17:55:48  PAGE 8
+
+
+  C:0675H         LINE#         48
+  C:0685H         LINE#         49
+  C:069BH         LINE#         50
+  C:06B4H         LINE#         51
+  C:06C7H         LINE#         53
+  -------         ENDPROC       _HLK_PRINTINT
+  -------         PROC          _HLK_M30_STA_MANUAL
+  D:0049H         SYMBOL        ssid
+  D:004CH         SYMBOL        Encryption
+  D:004DH         SYMBOL        pwd
+  -------         DO            
+  D:0050H         SYMBOL        ssidl
+  D:0052H         SYMBOL        pwdl
+  -------         ENDDO         
+  C:038DH         LINE#         71
+  C:0395H         LINE#         72
+  C:0395H         LINE#         73
+  C:039CH         LINE#         74
+  C:03A9H         LINE#         76
+  C:03B2H         LINE#         77
+  C:03CDH         LINE#         78
+  C:03E9H         LINE#         79
+  C:0407H         LINE#         80
+  C:0422H         LINE#         81
+  C:043EH         LINE#         82
+  C:0447H         LINE#         83
+  C:0450H         LINE#         84
+  C:0459H         LINE#         85
+  C:0462H         LINE#         86
+  C:046BH         LINE#         87
+  C:0474H         LINE#         88
+  C:047DH         LINE#         89
+  C:0486H         LINE#         90
+  C:048FH         LINE#         91
+  C:0498H         LINE#         92
+  C:04A1H         LINE#         93
+  C:04AAH         LINE#         94
+  C:04B3H         LINE#         95
+  C:04BCH         LINE#         96
+  -------         ENDPROC       _HLK_M30_STA_MANUAL
+  -------         PROC          HLK_M30_RESETDEFAULT
+  -------         DO            
+  D:0007H         SYMBOL        len
+  -------         ENDDO         
+  C:076BH         LINE#         104
+  C:076BH         LINE#         105
+  C:076BH         LINE#         107
+  C:0774H         LINE#         108
+  C:0777H         LINE#         109
+  C:078AH         LINE#         110
+  C:0790H         LINE#         111
+  C:07A5H         LINE#         112
+  C:07A7H         LINE#         113
+  C:07A7H         LINE#         114
+  C:07A9H         LINE#         115
+  C:07A9H         LINE#         116
+  -------         ENDPROC       HLK_M30_RESETDEFAULT
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/25/2014  17:55:48  PAGE 9
+
+
+  -------         ENDMOD        HLK_M30
+
+  -------         MODULE        ?C?COPY
+  C:00F6H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+  -------         MODULE        ?C?CLDPTR
+  C:011CH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0135H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?ULDIV
+  C:019EH         PUBLIC        ?C?ULDIV
+  -------         ENDMOD        ?C?ULDIV
+
+  -------         MODULE        ?C?ULCMP
+  C:0230H         PUBLIC        ?C?ULCMP
+  -------         ENDMOD        ?C?ULCMP
+
+  -------         MODULE        STRSTR
+  D:0066H         PUBLIC        ?_strstr?BYTE
+  C:05D5H         PUBLIC        _strstr
+  -------         ENDMOD        STRSTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_HLK_UART_READ?SH88F2052_UART
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?HLK_ISATMODE?HLK_M30
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?HLK_M30_RESETDEFAULT?HLK_M30
+
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?SH88F2052_UART
+    LENGTH:  0009H
+
+*** ERROR L107: ADDRESS SPACE OVERFLOW
+    SPACE:   DATA    
+    SEGMENT: ?DT?_DELAY?SH88F2052_UART
+    LENGTH:  0002H
+
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  UART_LEN
+    SEGMENT: ?DT?SH88F2052_UART
+
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  UART_TX_IDLE
+    SEGMENT: ?DT?SH88F2052_UART
+
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  UART_TX_LEN
+    SEGMENT: ?DT?SH88F2052_UART
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/25/2014  17:55:48  PAGE 10
+
+
+
+*** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+    SYMBOL:  UART_TX_BUF
+    SEGMENT: ?DT?SH88F2052_UART
+
+Program Size: data=139.0 xdata=64 code=2242
+LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  6 ERROR(S)

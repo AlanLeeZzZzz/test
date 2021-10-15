@@ -1,0 +1,152 @@
+C51 COMPILER V9.51   HLK_M30                                                               10/25/2014 17:55:48 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE HLK_M30
+OBJECT MODULE PLACED IN HLK-M30.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE HLK-M30.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1           /*
+   2           ***************************************************************************
+   3           * (c) Copyright, Shenzhen Hi-Link ElectronicTechnology co.,Ltd/HI-LINK(HK) CO.,LIMITED.
+   4           * All Rights Reserved.
+   5           *
+   6           *Shenzhen Hi-Link ElectronicTechnology co.,Ltd/HI-LINK(HK) CO.,LIMITED
+   7           *3F.5# Building,Minxing Industrial Park
+   8           *MingZhi LongHua District
+   9           *Shenzhen,China.
+  10           *
+  11           ***************************************************************************
+  12           *
+  13           */
+  14          #include "HLK-M30.h"
+  15          
+  16          unsigned char buf[65];
+  17          
+  18          /*************************************************************************************
+  19          ***函数名：HLK_IsATMode()
+  20          ***功能：判断是否进入at指令模式
+  21          ***参数：无
+  22          ***返回：0：未进入at指令模式 1：已经进入at指令模式
+  23          *************************************************************************************/
+  24          unsigned char HLK_IsATMode()
+  25          {
+  26   1        uchar len;
+  27   1        HLK_uart_clear_rx();
+  28   1        HLK_Printf("at+ver=?\r\n");
+  29   1        len=HLK_uart_read_TimeOut(buf,sizeof(buf),300);
+  30   1        buf[len]=0;
+  31   1        if(0 == strstr(buf,"at+ver")){                   //查找接收到的字符是否有at+ver字样
+  32   2          return 0;                                      //返回0表示为未进入at指令模式
+  33   2        }
+  34   1        return 1;                                        //返回1表示为已进入at指令模式
+  35   1      }
+  36          /*************************************************************************************
+  37          ***函数名：HLK_PrintInt()
+  38          ***功能：将一个整数从串口打印出来
+  39          ***参数：整数
+  40          ***返回：无
+  41          *************************************************************************************/
+  42          void HLK_PrintInt(unsigned long a)
+  43          {
+  44   1          unsigned char i;
+  45   1          unsigned char s[8]={0,0,0,0,0,0,0,0};
+  46   1          s[0]=0;
+  47   1          do{
+  48   2              for(i=7;i>0;i--)s[i]=s[i-1];
+  49   2              s[0]=a%10+'0';
+  50   2              a/=10;
+  51   2          }while(a>0);
+  52   1      
+  53   1          HLK_Printf(s);
+  54   1      }
+  55          
+C51 COMPILER V9.51   HLK_M30                                                               10/25/2014 17:55:48 PAGE 2   
+
+  56          /*************************************************************************************
+  57          ***函数名：HLK_M30_STA_Manual()
+  58          ***功能：设置模块为STA模式
+  59          ***参数：
+  60                  ssid：要连接的网络名称
+  61                  Encryption:加密方式
+  62                        0：NONE
+  63                        1：WEP_SHARE
+  64                        2：WEP_OPEN
+  65                        4：WPA_AES
+  66                        7：WPA2_AES
+  67                        9：WPA/WPA2_AES
+  68                  pwd:  连接wifi的密码
+  69          ***返回：无
+  70          *************************************************************************************/
+  71          void HLK_M30_STA_Manual(char *ssid,char Encryption, char *pwd)
+  72          {
+  73   1        unsigned int ssidl=HLK_strlen(ssid);
+  74   1        unsigned int pwdl =HLK_strlen(pwd);
+  75   1        
+  76   1        HLK_Printf("at+WM=2\r\n");
+  77   1        HLK_Printf("at+Sssid=");HLK_Printf(ssid);HLK_Printf("\r\n");
+  78   1        HLK_Printf("at+Sssidl=");HLK_PrintInt(ssidl);HLK_Printf("\r\n");
+  79   1        HLK_Printf("at+Sam=");HLK_PrintInt(Encryption);HLK_Printf("\r\n");
+  80   1        HLK_Printf("at+Spw=");HLK_Printf(pwd);HLK_Printf("\r\n");
+  81   1        HLK_Printf("at+Spwl=");HLK_PrintInt(pwdl);HLK_Printf("\r\n");
+  82   1        HLK_Printf("at+dhcp=0\r\n");                     //0:设置静态ip,1:自动获取ip
+  83   1        HLK_Printf("at+ip=192,168,11,99\r\n");
+  84   1        HLK_Printf("at+mask=255,255,255,0\r\n");
+  85   1        HLK_Printf("at+gw=192,168,11,1\r\n");
+  86   1        HLK_Printf("at+dns=192,168,11,1\r\n");
+  87   1        HLK_Printf("at+UType=1\r\n");
+  88   1        HLK_Printf("at+UIp=192.168.0.1\r\n");
+  89   1        HLK_Printf("at+URPort=8080\r\n");
+  90   1        HLK_Printf("at+ULPort=8080\r\n");
+  91   1        HLK_Printf("at+Ub=115200\r\n");
+  92   1        HLK_Printf("at+Ud=8\r\n");
+  93   1        HLK_Printf("at+Up=0\r\n");
+  94   1        HLK_Printf("at+Us=1\r\n");
+  95   1        HLK_Printf("at+WC=1\r\n");
+  96   1        HLK_Printf("at+Rb=1\r\n");  
+  97   1      }
+  98          /*************************************************************************************
+  99          ***函数名：HLK_M30_ResetDefault()
+ 100          ***功能：将模块恢复到出厂设置
+ 101          ***参数：无
+ 102          ***返回：0：恢复出厂失败 1：恢复出厂成功
+ 103          *************************************************************************************/
+ 104          uchar HLK_M30_ResetDefault(void)
+ 105          {
+ 106   1        uchar len;
+ 107   1        HLK_Printf("at+Df=1\r\n");
+ 108   1        HLK_uart_clear_rx();
+ 109   1        len=HLK_uart_read_TimeOut(buf,sizeof(buf),500);
+ 110   1        buf[len]=0;
+ 111   1        if(0 == strstr(buf,"ok")){                
+ 112   2          return 0;                                     
+ 113   2        }
+ 114   1        return 1;                                      
+ 115   1        HLK_Printf("at+Rb=1\r\n");    
+ 116   1      }
+ 117          
+C51 COMPILER V9.51   HLK_M30                                                               10/25/2014 17:55:48 PAGE 3   
+
+ 118          
+ 119          
+ 120          
+ 121          
+ 122          
+ 123          
+ 124          
+ 125          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    559    ----
+   CONSTANT SIZE    =    332    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     65      23
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

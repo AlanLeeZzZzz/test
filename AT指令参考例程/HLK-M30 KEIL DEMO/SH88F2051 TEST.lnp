@@ -1,0 +1,6 @@
+"STARTUP.obj",
+"hlk_rm04_demo_c51.obj",
+"sh88f2052_uart.obj",
+"HLK-M30.obj" 
+TO "SH88F2051 TEST" 
+RAMSIZE(256) 
